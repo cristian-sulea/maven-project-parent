@@ -39,9 +39,9 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
-    <property.archive.manifest.built-by>Cristian Sulea ( http://cristian.sulea.net )</property.archive.manifest.built-by>
+    <text.archive.manifest.built-by>Cristian Sulea ( http://cristian.sulea.net )</text.archive.manifest.built-by>
 
-    <property.plugin.gpg.skip>true</property.plugin.gpg.skip>
+    <skip.plugin.gpg>true</skip.plugin.gpg>
 
   </properties>
 
@@ -56,7 +56,7 @@
         <configuration>
           <archive>
             <manifestEntries>
-              <Built-By>${archive.manifest.built-by}</Built-By>
+              <Built-By>${text.archive.manifest.built-by}</Built-By>
             </manifestEntries>
           </archive>
         </configuration>
@@ -67,7 +67,7 @@
         <artifactId>maven-gpg-plugin</artifactId>
         <version>1.5</version>
         <configuration>
-          <skip>${property.plugin.gpg.skip}</skip>
+          <skip>${skip.plugin.gpg}</skip>
         </configuration>
         <executions>
           <execution>
