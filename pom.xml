@@ -7,12 +7,12 @@
   <packaging>pom</packaging>
 
 
-  <version>1.2</version>
+  <version>1.0</version>
 
 
   <name>Maven Project Parent</name>
-  <description>The Parent POM provides all the common settings for all the Maven projects.</description>
-  <!-- <url>http://cristian.sulea.net/projects/maven-project-parent/</url> -->
+  <description>The Maven Project Parent POM provides all the common settings for all the Maven projects.</description>
+  <url>http://cristian.sulea.net/projects/maven-project-parent/</url>
 
   <inceptionYear>2015</inceptionYear>
 
@@ -134,6 +134,7 @@
         <version>1.5</version>
         <configuration>
           <skip>true</skip>
+          <passphrase>cristian.sulea</passphrase>
         </configuration>
         <executions>
           <execution>
