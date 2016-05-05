@@ -7,7 +7,7 @@
   <packaging>pom</packaging>
 
 
-  <version>1.2</version>
+  <version>1.2.1</version>
 
 
   <name>Maven Project Parent</name>
@@ -41,8 +41,6 @@
 
     <text.archive.manifest.built-by>Cristian Sulea ( http://cristian.sulea.net )</text.archive.manifest.built-by>
 
-    <skip.plugin.gpg>true</skip.plugin.gpg>
-
   </properties>
 
 
@@ -66,17 +64,6 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-gpg-plugin</artifactId>
         <version>1.5</version>
-        <configuration>
-          <skip>${skip.plugin.gpg}</skip>
-        </configuration>
-        <executions>
-          <execution>
-            <phase>verify</phase>
-            <goals>
-              <goal>sign</goal>
-            </goals>
-          </execution>
-        </executions>
       </plugin>
 
     </plugins>
