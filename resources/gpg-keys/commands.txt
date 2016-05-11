@@ -1,0 +1,2 @@
+gpg --export 299A0596 > public.key
+gpg --export-secret-key 299A0596 > private.key
