@@ -1,0 +1,3 @@
+
+#parse("${folderSiteResourcesParent}/contact.apt.vm")
+#parse("${folderSiteResourcesParent}/licensing.apt.vm")
