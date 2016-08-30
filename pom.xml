@@ -7,7 +7,7 @@
   <packaging>pom</packaging>
 
 
-  <version>1.3.2</version>
+  <version>1.4.0</version>
 
 
   <name>Maven Project Parent</name>
@@ -123,8 +123,8 @@
   <licenses>
 
     <license>
-      <name>Apache License, Version 2.0</name>
-      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
+      <name>GNU GENERAL PUBLIC LICENSE, Version 3, 29 June 2007</name>
+      <url>https://www.gnu.org/licenses/gpl-3.0.txt</url>
       <distribution>repo</distribution>
     </license>
 
@@ -143,6 +143,22 @@
     </repository>
 
   </distributionManagement>
+
+
+  <profiles>
+
+    <profile>
+
+      <id>modules</id>
+
+      <modules>
+        <module>../maven-assembly-descriptors</module>
+        <module>../maven-checkstyle-rules</module>
+        <module>../maven-project-parent-java</module>
+      </modules>
+    </profile>
+
+  </profiles>
 
 
 </project>
