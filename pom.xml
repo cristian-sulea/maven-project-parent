@@ -7,7 +7,7 @@
   <packaging>pom</packaging>
 
 
-  <version>1.4.0</version>
+  <version>2.0</version>
 
 
   <name>Maven Project Parent</name>
@@ -15,6 +15,7 @@
   <url>http://cristian.sulea.net/projects/maven-project-parent/</url>
 
   <inceptionYear>2016</inceptionYear>
+
 
   <organization>
     <name>Cristian Sulea</name>
@@ -44,6 +45,27 @@
   </scm>
 
 
+  <distributionManagement>
+    <snapshotRepository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+    </snapshotRepository>
+    <repository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+    </repository>
+  </distributionManagement>
+
+
+  <licenses>
+    <license>
+      <name>Apache License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+
   <properties>
 
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -51,11 +73,9 @@
 
     <version.plugin.site>3.3</version.plugin.site>
     <version.plugin.site.reports>2.7</version.plugin.site.reports>
-    <relativizeDecorationLinks>false</relativizeDecorationLinks>
-
-    <folderSiteResourcesParent>../../../../maven-project-parent/src/site-resources/</folderSiteResourcesParent>
 
     <text.archive.manifest.built-by>Cristian Sulea ( http://cristian.sulea.net )</text.archive.manifest.built-by>
+    <text.license.copyright>Cristian Sulea ( http://cristian.sulea.net )</text.license.copyright>
 
   </properties>
 
@@ -98,6 +118,16 @@
         <version>1.5</version>
       </plugin>
 
+      <plugin>
+        <groupId>net.sulea.cristian</groupId>
+        <artifactId>maven-plugin-set-license</artifactId>
+        <version>3.1</version>
+        <configuration>
+          <license>apache-2.0</license>
+          <copyright>${text.license.copyright}</copyright>
+        </configuration>
+      </plugin>
+
     </plugins>
   </build>
 
@@ -124,31 +154,6 @@
 
     </plugins>
   </reporting>
-
-
-  <licenses>
-
-    <license>
-      <name>GNU GENERAL PUBLIC LICENSE, Version 3, 29 June 2007</name>
-      <url>https://www.gnu.org/licenses/gpl-3.0.txt</url>
-      <distribution>repo</distribution>
-    </license>
-
-  </licenses>
-
-
-  <distributionManagement>
-
-    <snapshotRepository>
-      <id>ossrh</id>
-      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
-    </snapshotRepository>
-    <repository>
-      <id>ossrh</id>
-      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-    </repository>
-
-  </distributionManagement>
 
 
   <profiles>
