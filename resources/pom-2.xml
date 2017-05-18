@@ -1,0 +1,178 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+
+  <groupId>net.sulea.cristian</groupId>
+  <artifactId>maven-project-parent</artifactId>
+  <packaging>pom</packaging>
+
+
+  <version>2.0</version>
+
+
+  <name>Maven Project Parent</name>
+  <description>The Maven Project Parent POM provides all the common settings for all the Maven projects.</description>
+  <url>http://cristian.sulea.net/projects/maven-project-parent/</url>
+
+  <inceptionYear>2016</inceptionYear>
+
+
+  <organization>
+    <name>Cristian Sulea</name>
+    <url>http://cristian.sulea.net</url>
+  </organization>
+
+  <developers>
+    <developer>
+      <id>cristian.sulea</id>
+      <name>Cristian Sulea</name>
+      <email>cristian.sulea.79@gmail.com</email>
+      <url>http://cristian.sulea.net</url>
+      <timezone>Europe/Bucharest</timezone>
+      <roles>
+        <role>owner</role>
+        <role>architect</role>
+        <role>developer</role>
+      </roles>
+    </developer>
+  </developers>
+
+
+  <scm>
+    <connection>scm:git:git@github.com:cristian-sulea/maven-project-parent.git</connection>
+    <developerConnection>scm:git:git@github.com:cristian-sulea/maven-project-parent.git</developerConnection>
+    <url>https://github.com/cristian-sulea/maven-project-parent</url>
+  </scm>
+
+
+  <distributionManagement>
+    <snapshotRepository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+    </snapshotRepository>
+    <repository>
+      <id>ossrh</id>
+      <url>https://oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+    </repository>
+  </distributionManagement>
+
+
+  <licenses>
+    <license>
+      <name>Apache License, Version 2.0</name>
+      <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+
+
+  <properties>
+
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+
+    <version.plugin.site>3.3</version.plugin.site>
+    <version.plugin.site.reports>2.7</version.plugin.site.reports>
+
+    <text.archive.manifest.built-by>Cristian Sulea ( http://cristian.sulea.net )</text.archive.manifest.built-by>
+    <text.license.copyright>Cristian Sulea ( http://cristian.sulea.net )</text.license.copyright>
+
+    <relativizeDecorationLinks>false</relativizeDecorationLinks>
+    <folderSiteResourcesParent>../../../../maven-project-parent/src/site-resources/</folderSiteResourcesParent>
+
+  </properties>
+
+
+  <build>
+    <plugins>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>2.1</version>
+        <configuration>
+          <archive>
+            <manifestEntries>
+              <Built-By>${text.archive.manifest.built-by}</Built-By>
+            </manifestEntries>
+          </archive>
+        </configuration>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-site-plugin</artifactId>
+        <version>${version.plugin.site}</version>
+        <configuration>
+          <locales>en</locales>
+        </configuration>
+        <executions>
+          <execution>
+            <goals>
+              <goal>attach-descriptor</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-gpg-plugin</artifactId>
+        <version>1.5</version>
+      </plugin>
+
+      <plugin>
+        <groupId>net.sulea.cristian</groupId>
+        <artifactId>maven-plugin-set-license</artifactId>
+        <version>3.1</version>
+        <configuration>
+          <license>apache-2.0</license>
+          <copyright>${text.license.copyright}</copyright>
+        </configuration>
+      </plugin>
+
+    </plugins>
+  </build>
+
+
+  <reporting>
+    <plugins>
+
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-project-info-reports-plugin</artifactId>
+        <version>${version.plugin.site.reports}</version>
+        <reportSets>
+          <reportSet>
+            <reports>
+              <report>index</report>
+              <report>summary</report>
+              <report>dependencies</report>
+              <report>project-team</report>
+              <report>license</report>
+            </reports>
+          </reportSet>
+        </reportSets>
+      </plugin>
+
+    </plugins>
+  </reporting>
+
+
+  <profiles>
+
+    <profile>
+
+      <id>modules</id>
+
+      <modules>
+        <module>../maven-assembly-descriptors</module>
+        <module>../maven-checkstyle-rules</module>
+        <module>../maven-project-parent-java</module>
+      </modules>
+    </profile>
+
+  </profiles>
+
+
+</project>
