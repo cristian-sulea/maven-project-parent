@@ -7,7 +7,7 @@
   <packaging>pom</packaging>
 
 
-  <version>2.0</version>
+  <version>2.1</version>
 
 
   <name>Maven Project Parent</name>
@@ -73,6 +73,7 @@
 
     <version.plugin.site>3.3</version.plugin.site>
     <version.plugin.site.reports>2.7</version.plugin.site.reports>
+    <version.plugin.set.license>3.2</version.plugin.set.license>
 
     <text.archive.manifest.built-by>Cristian Sulea ( http://cristian.sulea.net )</text.archive.manifest.built-by>
     <text.license.copyright>Cristian Sulea ( http://cristian.sulea.net )</text.license.copyright>
@@ -121,7 +122,7 @@
       <plugin>
         <groupId>net.sulea.cristian</groupId>
         <artifactId>maven-plugin-set-license</artifactId>
-        <version>3.1</version>
+        <version>${version.plugin.set.license}</version>
         <configuration>
           <license>apache-2.0</license>
           <copyright>${text.license.copyright}</copyright>
@@ -154,6 +155,22 @@
 
     </plugins>
   </reporting>
+
+
+  <profiles>
+
+    <profile>
+
+      <id>modules</id>
+
+      <modules>
+        <module>../maven-assembly-descriptors</module>
+        <module>../maven-checkstyle-rules</module>
+        <module>../maven-project-parent-java</module>
+      </modules>
+    </profile>
+
+  </profiles>
 
 
 </project>
