@@ -156,20 +156,4 @@
   </reporting>
 
 
-  <profiles>
-
-    <profile>
-
-      <id>modules</id>
-
-      <modules>
-        <module>../maven-assembly-descriptors</module>
-        <module>../maven-checkstyle-rules</module>
-        <module>../maven-project-parent-java</module>
-      </modules>
-    </profile>
-
-  </profiles>
-
-
 </project>
