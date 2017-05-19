@@ -60,7 +60,7 @@
   <licenses>
     <license>
       <name>Apache License, Version 2.0</name>
-      <url>http://www.apache.org/licenses/LICENSE-2.0</url>
+      <url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
       <distribution>repo</distribution>
     </license>
   </licenses>
@@ -127,6 +127,15 @@
           <license>apache-2.0</license>
           <copyright>${text.license.copyright}</copyright>
         </configuration>
+        <executions>
+          <execution>
+            <phase>process-sources</phase>
+            <goals>
+              <goal>header</goal>
+              <goal>file</goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
 
     </plugins>
@@ -155,22 +164,6 @@
 
     </plugins>
   </reporting>
-
-
-  <profiles>
-
-    <profile>
-
-      <id>modules</id>
-
-      <modules>
-        <module>../maven-assembly-descriptors</module>
-        <module>../maven-checkstyle-rules</module>
-        <module>../maven-project-parent-java</module>
-      </modules>
-    </profile>
-
-  </profiles>
 
 
 </project>
